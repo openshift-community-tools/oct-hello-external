@@ -13,6 +13,19 @@ spec:
   consolePlugin: oct-hello-external
   href: /community-tools/management/hello-external
   defaultChannel: stable
+  # Optional: what the tool needs, and why (oct-storefront docs/security-model.md).
+  # The storefront shows it on the install review screen and compares it with what
+  # the manifests really do; it never relaxes a check. Without it the tile shows
+  # "Not declared".
+  security:
+    schema: 1
+    level: plugin
+    summary: Console page only. No backend, no API access, no RBAC.
+    contact: https://github.com/openshift-community-tools/oct-hello-external/security/advisories
+    network:
+      ingress: console-only
+    secrets:
+      access: none
   versions:
     - version: "1.0.0"
       channel: stable
